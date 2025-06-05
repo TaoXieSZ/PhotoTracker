@@ -1,0 +1,261 @@
+/* Mac 风格应用布局 - 紫色渐变设计 */
+.mac-app-layout {
+  min-height: 100vh;
+  background: var(--bg-secondary);
+  font-family: var(--font-family);
+}
+
+/* 顶部导航栏 - 紫色渐变 */
+.mac-header {
+  background: var(--primary-gradient);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  /* 使整个头部区域可拖拽 */
+  -webkit-app-region: drag;
+}
+
+.mac-header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 应用标题区域 */
+.mac-app-title {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.mac-app-icon {
+  font-size: 36px;
+  line-height: 1;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.mac-app-name {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-inverse);
+  margin: 0;
+  letter-spacing: -0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 导航菜单和主题切换区域 - 保持可交互 */
+.mac-nav-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  /* 禁用拖拽，保持可交互 */
+  -webkit-app-region: no-drag;
+}
+
+.mac-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.mac-theme-toggle-wrapper {
+  display: flex;
+  align-items: center;
+  padding-left: var(--spacing-md);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mac-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-inverse);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: var(--transition-normal);
+  white-space: nowrap;
+  /* 确保按钮可点击 */
+  -webkit-app-region: no-drag;
+}
+
+.mac-nav-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.mac-nav-item.active {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--primary-color);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-md);
+}
+
+.mac-nav-item.active:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+.mac-nav-item span {
+  font-size: var(--font-size-sm);
+}
+
+/* 确保所有交互元素都不可拖拽 */
+button,
+input,
+select,
+textarea,
+.ant-btn,
+.ant-input,
+.ant-select,
+.ant-switch,
+.ant-checkbox,
+.ant-radio,
+[role="button"],
+[role="menuitem"],
+[role="tab"] {
+  -webkit-app-region: no-drag;
+}
+
+/* 主内容区域 */
+.mac-main {
+  padding: var(--spacing-2xl) 0;
+  min-height: calc(100vh - 80px);
+}
+
+/* 页面容器 */
+.mac-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* 页面标题区域 */
+.mac-page-header {
+  background: var(--bg-card);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light);
+}
+
+.mac-page-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-sm) 0;
+  line-height: var(--line-height-tight);
+}
+
+.mac-page-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: var(--line-height-normal);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .mac-header-content {
+    padding: 0 var(--spacing-md);
+    height: 72px;
+  }
+  
+  .mac-app-title {
+    gap: var(--spacing-sm);
+  }
+  
+  .mac-app-icon {
+    font-size: 28px;
+  }
+  
+  .mac-app-name {
+    font-size: var(--font-size-xl);
+  }
+  
+  .mac-nav-section {
+    gap: var(--spacing-md);
+  }
+  
+  .mac-nav {
+    gap: var(--spacing-xs);
+  }
+  
+  .mac-nav-item {
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-xs);
+  }
+  
+  .mac-nav-item span {
+    display: none;
+  }
+  
+  .mac-theme-toggle-wrapper {
+    padding-left: var(--spacing-sm);
+    border-left-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .mac-main {
+    padding: var(--spacing-lg) 0;
+    min-height: calc(100vh - 72px);
+  }
+  
+  .mac-container {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .mac-page-header {
+    padding: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .mac-page-title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* 深色模式下的导航按钮优化 */
+[data-theme="dark"] .mac-nav-item {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="dark"] .mac-nav-item:hover {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+[data-theme="dark"] .mac-nav-item.active {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+[data-theme="dark"] .mac-nav-item.active:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: rgba(255, 255, 255, 1) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+[data-theme="dark"] .mac-nav-item span {
+  color: inherit !important;
+} 
